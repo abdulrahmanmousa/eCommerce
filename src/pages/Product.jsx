@@ -4,13 +4,15 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import BalanceIcon from "@mui/icons-material/Balance";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartReducer";
 
 export default function Product() {
   const [selectedImg, setSelectedImg] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [product, setProduct] = useState([]);
-
   const { id } = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
@@ -70,7 +72,21 @@ export default function Product() {
             +
           </button>
         </div>
-        <button className='add'>
+        <button
+          className='add'
+          onClick={() =>
+            dispatch(
+              addToCart({
+                id: product.id,
+                title: product.title,
+                description: product.description,
+                price: product.price,
+                image: product.image,
+                quantity,
+              })
+            )
+          }
+        >
           <AddShoppingCartIcon />
           ADD TO CART
         </button>
