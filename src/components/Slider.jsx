@@ -8,7 +8,7 @@ export default function Slider() {
 
   const data = [
     "https://mobirise.com/extensions/commercem4/assets/images/galleries-1-1200x800.png",
-    "https://cdn-bhhdg.nitrocdn.com/khrlIvyTsTUVErjTycfRBczdrGGemjHA/assets/images/optimized/rev-7d8fd3b/wp-content/uploads/2020/05/12100657/cover_ecommerce1-800x420.webp",
+    "https://cdn.dribbble.com/users/174905/screenshots/18266976/ecommerce-product-slider-dribbble.png",
   ];
 
   const prevSlide = () => {
